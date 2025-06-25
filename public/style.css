@@ -28,8 +28,23 @@
     box-shadow: 0 0 15px rgba(0,0,0,0.3);
     z-index: 1000;
     display: none;
-    width: 50%;
+    width: 60%;
     height: 60%;
+}
+.login-popup form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.login-popup form label {
+    font-weight: bold;
+}
+.login-popup form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
 .sidebar {
     position: fixed;

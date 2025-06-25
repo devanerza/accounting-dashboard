@@ -1,6 +1,6 @@
 import { getTransactions, getTransactionsByMonth, insertTransaction } from './supabaseClient.js';
 import { totalTransactions } from './utils.js';
-import {signIn, signOut, checkSession } from './auth.js';
+import { signIn, signOut, checkSession } from './auth.js';
 
 
 // -----------
@@ -45,7 +45,7 @@ const addButton = document.querySelectorAll('.add-button');
 async function checkingUserSession() {
   try {
     const user = await checkSession();
-    console.log(user);
+    // console.log(user); (Uncomment for testing)
     if (user === null) {
       addButton.forEach(button => {
         button.disabled = true;
@@ -91,7 +91,7 @@ if (closeButton) {
 }
 
 // Add event listener for submit button
-const submitButton = document.querySelector('.submit-button');
+const submitButton = document.querySelector('.sidebar .submit-button');
 if (submitButton) {
   submitButton.addEventListener('click', async () => {
     insertDate = document.querySelector('input[type="date"]').value;

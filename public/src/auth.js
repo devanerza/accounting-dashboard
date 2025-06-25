@@ -1,27 +1,13 @@
 import { supabase } from './supabaseClient.js';
 
-export async function signUp(email, password) {
+export async function signIn(email, password) {
     try {
-        const { data, error } = await supabase.auth.signUp({
+        const { data, error } = await supabase.auth.signInWithPassword({
             email,
             password,
         });
         if (error) throw error;
-        console.log(data);
-        return data;
-    } catch (error) {
-        console.error('Error signing up:', error);
-        throw error;
-    }
-}
-
-export async function signIn(email) {
-    try {
-        const { data, error } = await supabase.auth.signInWithOtp({
-            email,
-        });
-        if (error) throw error;
-        console.log(data);
+        // console.log(data); (Uncomment for testing)
         return data;
     } catch (error) {
         console.error('Error signing in:', error);
@@ -44,7 +30,7 @@ export async function checkSession() {
     try {
         const { data: { session }, error } = await supabase.auth.getSession();
         if (session && session.user){
-            console.log(session.user);
+            // console.log(session.user); (Uncomment for testing)
             return session.user;
         } else {
             console.warn('No session found');

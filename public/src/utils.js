@@ -4,9 +4,7 @@ export function totalTransactions(transactions, amounts, typeData, transactionTy
   for (let i = 0; i < transactions.length; i++) {
     if (typeData[i] === transactionType) {
       total += amounts[i];
-      console.log(amounts[i]);
     }
   }
-  console.log(total);
   return total;
 }
